@@ -36859,32 +36859,21 @@ var staticRenderFns = [
       _c("footer", { staticClass: "footer" }, [
         _c("div", { staticClass: "content has-text-centered" }, [
           _c("p", [
-            _c("strong", [_vm._v("Bulma")]),
+            _c("strong", [_vm._v("Phonebook App | Vue.js and Laravel")]),
             _vm._v(" by "),
-            _c("a", { attrs: { href: "https://jgthms.com" } }, [
-              _vm._v("Jeremy Thomas")
+            _c("a", { attrs: { href: "#" } }, [
+              _vm._v("Miguel Angel Cornielly")
             ]),
-            _vm._v(". The source code is licensed\n\t      "),
+            _vm._v(". El código fuente se encuentra en: \n\t      "),
             _c(
               "a",
               {
                 attrs: {
-                  href: "http://opensource.org/licenses/mit-license.php"
+                  href: "https://github.com/mcornielly/app_phonebook.git"
                 }
               },
-              [_vm._v("MIT")]
-            ),
-            _vm._v(". The website content\n\t      is licensed "),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "http://creativecommons.org/licenses/by-nc-sa/4.0/"
-                }
-              },
-              [_vm._v("CC BY NC SA 4.0")]
-            ),
-            _vm._v(".\n\t    ")
+              [_vm._v("Github.com/mcornielly")]
+            )
           ])
         ])
       ])
