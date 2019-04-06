@@ -1784,11 +1784,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['openmodal'],
+  data: function data() {
+    return {
+      lists: {
+        name: '',
+        phone_number: '',
+        email: ''
+      }
+    };
+  },
   methods: {
     close: function close() {
       this.$emit('closeRequest');
+    },
+    save: function save() {
+      var _this = this;
+
+      axios.post('/phonebook', this.$data.lists).then(function (response) {
+        _this.close();
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -36993,12 +37032,98 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "modal-card-body" }),
+        _c("section", { staticClass: "modal-card-body" }, [
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label" }, [_vm._v("Name")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.lists.name,
+                    expression: "lists.name"
+                  }
+                ],
+                staticClass: "input",
+                attrs: { type: "text", placeholder: "Nombre" },
+                domProps: { value: _vm.lists.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.lists, "name", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label" }, [_vm._v("Teléfono")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.lists.phone_number,
+                    expression: "lists.phone_number"
+                  }
+                ],
+                staticClass: "input",
+                attrs: { type: "number", placeholder: "Teléfono" },
+                domProps: { value: _vm.lists.phone_number },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.lists, "phone_number", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "field" }, [
+            _c("label", { staticClass: "label" }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.lists.email,
+                    expression: "lists.email"
+                  }
+                ],
+                staticClass: "input",
+                attrs: { type: "email", placeholder: "email" },
+                domProps: { value: _vm.lists.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.lists, "email", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
         _vm._v(" "),
         _c("footer", { staticClass: "modal-card-foot" }, [
-          _c("button", { staticClass: "button is-success" }, [
-            _vm._v("Save changes")
-          ]),
+          _c(
+            "button",
+            { staticClass: "button is-success", on: { click: _vm.save } },
+            [_vm._v("Save changes")]
+          ),
           _vm._v(" "),
           _c("button", { staticClass: "button", on: { click: _vm.close } }, [
             _vm._v("Cancel")
@@ -52511,8 +52636,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     // 	component: require('./views/404').default
     // }	
 
-  }],
-  mode: 'history'
+  }] // mode: 'history' 
+
 }));
 
 /***/ }),

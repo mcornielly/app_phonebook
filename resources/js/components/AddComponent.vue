@@ -7,11 +7,32 @@
 		      <p class="modal-card-title">Modal title</p>
 		      <button class="delete" aria-label="close" @click="close"></button>
 		    </header>
+		    
 		    <section class="modal-card-body">
-		      <!-- Content ... -->
+		      	<div class="field">
+				  <label class="label">Name</label>
+				  <div class="control">
+				    <input class="input" type="text" placeholder="Nombre" v-model="lists.name">
+				  </div>
+				</div>
+
+				<div class="field">
+				  <label class="label">Teléfono</label>
+				  <div class="control">
+				    <input class="input" type="number" placeholder="Teléfono" v-model="lists.phone_number">
+				  </div>
+				</div>
+
+				<div class="field">
+				  <label class="label">Email</label>
+				  <div class="control">
+				    <input class="input" type="email" placeholder="email" v-model="lists.email">
+				  </div>
+				</div>
 		    </section>
+
 		    <footer class="modal-card-foot">
-		      <button class="button is-success">Save changes</button>
+		      <button class="button is-success" @click="save">Save changes</button>
 		      <button class="button" @click="close">Cancel</button>
 		    </footer>
 		  </div>
@@ -22,9 +43,26 @@
 <script>
 	export default {
 		props: ['openmodal'],
+		data() {
+			return{
+				lists: {
+					name: '',
+					phone_number: '',
+					email: ''
+				}
+			}
+		},
 		methods: {
 			close() {
 				this.$emit('closeRequest')
+			},
+			save() {
+				axios.post('/phonebook', this.$data.lists).then((response) => {
+			    this.close();
+			  })
+			  .catch(function (error) {
+			    console.log(error);
+			  });
 			}
 		}
 	}

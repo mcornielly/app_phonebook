@@ -19,6 +19,6 @@ export default new Router({
   		// 	path: '*',
   		// 	component: require('./views/404').default
   		// }	
-  ],
-  mode: 'history' 
+  ]
+  // mode: 'history' 
 })
