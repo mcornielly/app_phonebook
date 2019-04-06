@@ -3,7 +3,7 @@
 		<nav class="panel column is-offset-2 is-8">
 		  <p class="panel-heading">
 		    Vue.js Phonebook
-		    <button class="button is-link is-outlined">
+		    <button class="button is-link is-outlined" @click="openAdd">
 		      Nuevo Número
 		    </button>
 		  </p>
@@ -30,7 +30,26 @@
 		    	<i class="has-text-success fas fa-eye"></i>
 		    </span>
 		  </a>
-
 		</nav>
+
+		<add-component :openmodal="addActive" @closeRequest="close"></add-component>
 	</div>
 </template>
+
+<script>
+	export default {
+		data() {
+			return {
+				addActive: ''
+			}
+		},
+		methods: {
+			openAdd() {
+				this.addActive = 'is-active'
+			},
+			close() {
+				this.addActive = ''
+			}
+		}
+	}
+</script>
