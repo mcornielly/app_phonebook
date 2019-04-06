@@ -5,8 +5,17 @@
 // Variables
 @import 'variables';
 
-// // Bootstrap
+// Bootstrap
 // @import '~bootstrap/scss/bootstrap';
+
+//Font Awesome
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/css/fontawesome';
+
 
 // Bulma-start
 @import '~bulma-start/css/main';

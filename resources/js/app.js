@@ -30,9 +30,9 @@ Vue.component('footer-component', require('./components/FooterComponent.vue').de
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import router from './routes' 
+
 const app = new Vue({
     el: '#app',
-    created() {
-	    console.log('Hola Mundo')
-    }
+    router
 });
