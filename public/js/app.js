@@ -1805,6 +1805,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['openmodal'],
   data: function data() {
@@ -1813,7 +1816,8 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         phone_number: '',
         email: ''
-      }
+      },
+      errors: {}
     };
   },
   methods: {
@@ -1826,7 +1830,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/phonebook', this.$data.lists).then(function (response) {
         _this.close();
       })["catch"](function (error) {
-        console.log(error);
+        return _this.errors = error.response.data.errors;
       });
     }
   }
@@ -37047,6 +37051,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "input",
+                class: { "is-danger": _vm.errors.name },
                 attrs: { type: "text", placeholder: "Nombre" },
                 domProps: { value: _vm.lists.name },
                 on: {
@@ -37058,7 +37063,13 @@ var render = function() {
                   }
                 }
               })
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.errors.name
+              ? _c("small", { staticClass: "has-text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.name[0]))
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "field" }, [
@@ -37075,6 +37086,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "input",
+                class: { "is-danger": _vm.errors.phone_number },
                 attrs: { type: "number", placeholder: "Teléfono" },
                 domProps: { value: _vm.lists.phone_number },
                 on: {
@@ -37086,7 +37098,13 @@ var render = function() {
                   }
                 }
               })
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.errors.phone_number
+              ? _c("small", { staticClass: "has-text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.phone_number[0]))
+                ])
+              : _vm._e()
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "field" }, [
@@ -37103,6 +37121,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "input",
+                class: { "is-danger": _vm.errors.email },
                 attrs: { type: "email", placeholder: "email" },
                 domProps: { value: _vm.lists.email },
                 on: {
@@ -37114,7 +37133,13 @@ var render = function() {
                   }
                 }
               })
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.errors.email
+              ? _c("small", { staticClass: "has-text-danger" }, [
+                  _vm._v(_vm._s(_vm.errors.email[0]))
+                ])
+              : _vm._e()
           ])
         ]),
         _vm._v(" "),
